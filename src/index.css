@@ -1,3 +1,24 @@
+/* font faces */
+@font-face {
+  font-family: 'GeistMono-Medium';
+  src: url(../public/fonts/GeistMono-Medium.woff2);
+}
+
+@font-face {
+  font-family: 'GeistMono-Light';
+  src: url(../public/fonts/GeistMono-Light.woff2);
+}
+
+@font-face {
+  font-family: 'Geist-Medium';
+  src: url(../public/fonts/Geist-Medium.woff2);
+}
+
+@font-face {
+  font-family: 'Geist-SemiBold';
+  src: url(../public/fonts/Geist-SemiBold.woff2);
+}
+
 body {
   margin: 0;
   width: 100%;
