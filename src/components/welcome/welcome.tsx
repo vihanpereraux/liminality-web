@@ -35,7 +35,6 @@ const Welcome: React.FC = () => {
 
     useEffect(() => {
         const getCoords = (e: any) => {
-            console.log(e.clientX)
             setXCords(e.clientX);
             setYCords(e.clientY);
         }

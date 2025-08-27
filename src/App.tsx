@@ -8,6 +8,7 @@ import Topbar from "./components/ui/topbar"
 import SectionBreaker from "./components/ui/section-breaker"
 import Welcome from "./components/welcome/welcome"
 import Journey from "./components/journey/journey"
+import FloorPlan from "./components/floor-plan/floor-plan"
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,8 @@ const App: React.FC = () => {
         <Journey />
 
         <SectionBreaker heading="site plan" number="003" />
+      
+        <FloorPlan />
       </Box>
     </>
   )
