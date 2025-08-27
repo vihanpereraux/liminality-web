@@ -17,11 +17,11 @@ const App: React.FC = () => {
       <Box sx={{ pl: '12vw', pr: '12vw', mt: 15 }}>
         <Welcome />
 
-        <SectionBreaker />
+        <SectionBreaker heading="journey" number="002" />
 
         <Journey />
 
-        <SectionBreaker />
+        <SectionBreaker heading="site plan" number="003" />
       </Box>
     </>
   )

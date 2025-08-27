@@ -11,3 +11,8 @@ export interface JourneyTextProps {
     imageIndex: string,
     content: string
 }
+
+export interface SectionBreakerProps {
+    heading: string,
+    number: string
+}
