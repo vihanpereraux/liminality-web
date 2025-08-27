@@ -6,3 +6,8 @@ export interface textListProps {
     title: string,
     content: string
 }
+
+export interface JourneyTextProps {
+    imageIndex: string,
+    content: string
+}
