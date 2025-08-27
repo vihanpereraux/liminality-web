@@ -138,7 +138,7 @@ const Welcome: React.FC = () => {
                             }}>
                                 <Typography sx={{
                                     color: 'black',
-                                    fontSize: 10.55,
+                                    fontSize: 10,
                                     fontFamily: 'Geist-SemiBold',
                                 }}>{item.title}</Typography>
                             </Box>
@@ -147,7 +147,7 @@ const Welcome: React.FC = () => {
                             color: '#B7B7B7',
                             fontFamily: 'Geist-Medium',
                             textTransform: 'uppercase',
-                            fontSize: 10.55,
+                            fontSize: 10,
                             mt: 1
                         }}>{item.content}</Typography>
                     </Box>

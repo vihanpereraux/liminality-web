@@ -23,7 +23,7 @@ const Topbar: React.FC<TopbarProps> = ({ positionalString }) => {
                 pl: 1.75,
                 borderRadius: 2.5,
                 position: 'fixed',
-                top: 0,
+                top: '2%',
                 left: '50%',
                 width: '74vw',
                 transform: 'translateX(-50%)',
