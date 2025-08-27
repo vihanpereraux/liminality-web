@@ -21,12 +21,13 @@ const Topbar: React.FC<TopbarProps> = ({ positionalString }) => {
                 p: 1,
                 pr: 1.75,
                 pl: 1.75,
-                borderRadius: 3,
+                borderRadius: 2.5,
                 position: 'fixed',
                 top: 0,
                 left: '50%',
                 width: '74vw',
-                transform: 'translateX(-50%)'
+                transform: 'translateX(-50%)',
+                zIndex:2
             }}>
                 {/* name / logo */}
                 <Box sx={{

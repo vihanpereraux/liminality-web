@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // MUI
 import { Box, Typography } from "@mui/material";
@@ -30,20 +30,97 @@ const getTextPlacement = (index: number) => {
 }
 
 const Welcome: React.FC = () => {
+    const [xCoords, setXCords] = useState<number>(0);
+    const [yCoords, setYCords] = useState<number>(0);
+
+    useEffect(() => {
+        const getCoords = (e: any) => {
+            console.log(e.clientX)
+            setXCords(e.clientX);
+            setYCords(e.clientY);
+        }
+        window.addEventListener('mousemove', getCoords)
+
+        return () => {
+            window.removeEventListener('mousemove', getCoords)
+        }
+    }, [])
+
     return (
         <>
             <Box sx={{
                 width: '100%',
                 aspectRatio: 16 / 9,
-                backgroundColor: 'rgb(10, 10, 10)'
+                backgroundColor: 'rgb(10, 10, 10)',
+                position: 'relative'
             }}>
                 {/* three canvas */}
+
+                {/* markers */}
+                <Box sx={{
+                    width: 55,
+                    aspectRatio: 1,
+                    // p: .25,
+                    bgcolor: '#B7B7B7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'absolute',
+                    right: -80,
+                    top: '18%',
+                    // transform: 'translateX(-50%)',
+                }}>
+                    <Typography sx={{
+                        fontSize: 9,
+                        fontFamily: 'Geist-Medium'
+                    }}>[ + {xCoords} ]</Typography>
+                </Box>
+
+                {/* markers */}
+                <Box sx={{
+                    width: 55,
+                    aspectRatio: 1,
+                    // p: .25,
+                    bgcolor: '#B7B7B7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'absolute',
+                    left: -80,
+                    bottom: '18%'
+                }}>
+                    <Typography sx={{
+                        fontSize: 9,
+                        fontFamily: 'Geist-Medium'
+                    }}>[ + {yCoords} ]</Typography>
+                </Box>
+
+                {/* ver/hor lines */}
+                {/* <Box sx={{
+                    position: 'fixed',
+                    width: '1px',
+                    height: '100%',
+                    bgcolor: '#B3B3B3',
+                    opacity: .2,
+                    top: 0,
+                    left: '10%',
+                }}></Box>
+
+                <Box sx={{
+                    position: 'fixed',
+                    width: '1px',
+                    height: '100%',
+                    bgcolor: '#B3B3B3',
+                    opacity: .2,
+                    top: 0,
+                    right: '10%',
+                }}></Box> */}
             </Box>
 
             <Box sx={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                mt: 2
+                mt: 5
             }}>
                 {textList.map((item, index) => (
                     <Box key={index}>
