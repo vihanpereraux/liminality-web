@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 
 // utils
-import { textList } from "../../utils/text-list";
+import { textList } from "../../../utils/text-list";
 
 const getTextPlacement = (index: number) => {
     let justifyContent: string = "";
@@ -35,7 +35,6 @@ const Welcome: React.FC = () => {
 
     useEffect(() => {
         const getCoords = (e: any) => {
-            console.log(e.clientX)
             setXCords(e.clientX);
             setYCords(e.clientY);
         }
