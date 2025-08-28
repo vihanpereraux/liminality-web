@@ -25,3 +25,14 @@ body {
   min-height: 100vh;
   background: black !important;
 }
+
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body,
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

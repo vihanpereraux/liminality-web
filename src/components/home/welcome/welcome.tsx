@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 
 // utils
-import { textList } from "../../utils/text-list";
+import { textList } from "../../../utils/text-list";
 
 const getTextPlacement = (index: number) => {
     let justifyContent: string = "";

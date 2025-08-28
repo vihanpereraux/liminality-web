@@ -4,7 +4,7 @@ import React from "react";
 import { Typography, Box } from "@mui/material";
 
 // utils
-import { journeyContent } from "../../utils/journey-content";
+import { journeyContent } from "../../../utils/journey-content";
 
 const Journey: React.FC = () => {
     return (

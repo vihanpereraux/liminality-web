@@ -1,31 +1,25 @@
 import React from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-// MUI
-import { Box } from "@mui/material"
-
-// components
-import Topbar from "./components/ui/topbar"
-import SectionBreaker from "./components/ui/section-breaker"
-import Welcome from "./components/welcome/welcome"
-import Journey from "./components/journey/journey"
-import FloorPlan from "./components/floor-plan/floor-plan"
+// pages
+import Home from "./pages/home"
+import ChamberOne from "./pages/chamber-one"
+import ChamberTwo from "./pages/chamber-two"
+import Tunnel from "./pages/tunnel"
 
 const App: React.FC = () => {
   return (
     <>
-      <Topbar positionalString="welcome" />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" Component={Home}></Route>
+          <Route path="/chamber-one" Component={ChamberOne}></Route>
+          <Route path="/chamber-two" Component={ChamberTwo}></Route>
+          <Route path="/tunnel" Component={Tunnel}></Route>
+        </Routes>
+      </BrowserRouter>
 
-      <Box sx={{ pl: '12vw', pr: '12vw', mt: 15 }}>
-        <Welcome />
 
-        <SectionBreaker heading="journey" number="002" />
-
-        <Journey />
-
-        <SectionBreaker heading="site plan" number="003" />
-      
-        <FloorPlan />
-      </Box>
     </>
   )
 }

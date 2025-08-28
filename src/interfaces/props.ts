@@ -16,3 +16,9 @@ export interface SectionBreakerProps {
     heading: string,
     number: string
 }
+
+export interface TransitionProps {
+    showOverlay: boolean,
+    setEntryAccepted: (value: boolean) => void
+    nextRoute: string
+}

@@ -4,7 +4,7 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 
 // utils
-import { textList } from "../../utils/text-list";
+import { textList } from "../../../utils/text-list";
 
 const FloorPlan: React.FC = () => {
     return (
@@ -22,7 +22,7 @@ const FloorPlan: React.FC = () => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 mt: 2,
-                mb: 5
+                mb: 20
             }}>
                 {textList.map((item, index) => (
                     <Box key={index}>
