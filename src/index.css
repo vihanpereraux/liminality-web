@@ -10,6 +10,11 @@
 }
 
 @font-face {
+  font-family: 'Geist-Regular';
+  src: url(../public/fonts/Geist-Regular.woff2);
+}
+
+@font-face {
   font-family: 'Geist-Medium';
   src: url(../public/fonts/Geist-Medium.woff2);
 }

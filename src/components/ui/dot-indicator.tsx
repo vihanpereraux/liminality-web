@@ -3,13 +3,17 @@ import React from "react";
 // MUI
 import { Box } from "@mui/material";
 
-const DotIndicator: React.FC = () => {
+interface DotIconProps {
+    bgColor: string
+}
+
+const DotIndicator: React.FC<DotIconProps> = ({ bgColor }) => {
     return(
         <>
             <Box sx={{ 
-                width: 6,
-                height: 6,
-                bgcolor: 'black',
+                width: 4.5,
+                height: 4.5,
+                bgcolor: bgColor,
                 borderRadius: '50%',
              }}></Box>
         </>

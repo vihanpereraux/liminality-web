@@ -34,7 +34,7 @@ const Topbar: React.FC<TopbarProps> = ({ positionalString }) => {
                     display: 'flex',
                     alignItems: 'center'
                 }}>
-                    <DotIndicator />
+                    <DotIndicator bgColor="black" />
 
                     <Typography sx={{
                         fontFamily: 'GeistMono-Medium',
@@ -76,7 +76,7 @@ const Topbar: React.FC<TopbarProps> = ({ positionalString }) => {
                         alignItems: 'center',
                         mr: 1.5
                     }}>
-                        <DotIndicator />
+                        <DotIndicator bgColor="black" />
 
                         <Typography sx={{
                             fontFamily: 'GeistMono-Medium',

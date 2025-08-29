@@ -17,8 +17,18 @@ export interface SectionBreakerProps {
     number: string
 }
 
+export interface ChamberSectionBreakerProps {
+    headingLeft: string,
+    headingRight: string
+}
+
 export interface TransitionProps {
     showOverlay: boolean,
     setEntryAccepted: (value: boolean) => void
     nextRoute: string
+}
+
+export interface PageHeadingProps {
+    type: "multi" | "single",
+    content: string[]
 }
