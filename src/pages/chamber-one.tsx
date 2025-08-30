@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import gsap from "gsap";
+import React from "react";
 
 // MUI
 import { Box } from "@mui/material";
@@ -9,53 +8,13 @@ import Topbar from "../components/ui/topbar";
 import ChamberSectionBreaker from "../components/ui/chamber-section-breaker";
 import PageHeading from "../components/ui/page-heading";
 import PageContent from "../components/ui/page-content";
-import SnapReview from "../components/ui/snap-preview";
+import SnapGallery from "../components/ui/snap-gallery";
 
 // utils
 import { parentWrapperStyles } from "../utils/wrapper-styles";
+import { chamberOneImageList } from "../utils/chamber-image-lists";
 
 const ChamberOne: React.FC = () => {
-    const imageGalleryRef = useRef<HTMLDivElement>(null);
-    const plane1 = useRef<HTMLDivElement>(null);
-    const plane2 = useRef<HTMLDivElement>(null);
-
-    let requestAnimationFrameId: any = null;
-    let xForce = 0;
-    let yForce = 0;
-    const easing = 0.08;
-    const speed = 0.004;
-
-    const manageMouseMove = (e: any) => {
-        const { movementX, movementY } = e
-        xForce += movementX * speed;
-        yForce += movementY * speed;
-
-        if (requestAnimationFrameId == null) {
-            requestAnimationFrameId = requestAnimationFrame(animate);
-        }
-    }
-
-    const lerp = (start: any, target: any, amount: any) => start * (1 - amount) + target * amount;
-
-    const animate = () => {
-        xForce = lerp(xForce, 0, easing);
-        yForce = lerp(yForce, 0, easing);
-        gsap.set(plane1.current, { x: `+=${xForce * 0.3}`, y: `+=${yForce * 0.08}` })
-        gsap.set(plane2.current, { x: `+=${xForce * 0.08}`, y: `+=${yForce * 0.3}` })
-        // gsap.set(plane3.current, { x: `+=${xForce * 0.25}`, y: `+=${yForce * 0.25}` })
-
-        if (Math.abs(xForce) < 0.01) xForce = 0;
-        if (Math.abs(yForce) < 0.01) yForce = 0;
-
-        if (xForce != 0 || yForce != 0) {
-            requestAnimationFrame(animate);
-        }
-        else {
-            cancelAnimationFrame(requestAnimationFrameId)
-            requestAnimationFrameId = null;
-        }
-    }
-
     return (
         <>
             <Topbar positionalString="chamber one" />
@@ -102,39 +61,10 @@ const ChamberOne: React.FC = () => {
                     />
                 </Box>
 
-                <ChamberSectionBreaker headingLeft="title" headingRight="tangible realities" />
                 {/* gallery */}
-                <Box onMouseMove={(e) => { manageMouseMove(e) }}
-                    ref={imageGalleryRef}
-                    sx={{
-                        position: 'relative',
-                        width: '100%',
-                        height: '100vh',
-                        overflow: 'clip',
-                        mt: 10
-                    }}>
-                    <Box ref={plane1} sx={{
-                        position: 'relative',
-                        width: '100%',
-                        height: 330,
-                    }}>
-                        <SnapReview image="image_0" left="1%" top="10%" />
-                        <SnapReview image="image_1" left="25%" top="2%" />
-                        <SnapReview image="image_2" left="60%" top="15%" />
-                        <SnapReview image="image_3" right="1%" top="10%" />
-                    </Box>
-
-                    <Box ref={plane2} sx={{
-                        position: 'absolute',
-                        width: '100%',
-                        height: 330,
-                        mt: 20,
-                    }}>
-                        <SnapReview image="image_3" left="5%" top="20%" />
-                        <SnapReview image="image_2" left="28%" top="40%" />
-                        <SnapReview image="image_1" left="55%" top="20%" />
-                        <SnapReview image="image_0" right="2%" top="15%" />
-                    </Box>
+                <ChamberSectionBreaker headingLeft="snaps" headingRight="tangible realities" />
+                <Box sx={{ mt: 8, mb: 1 }}>
+                    <SnapGallery items={chamberOneImageList} />
                 </Box>
             </Box>
         </>

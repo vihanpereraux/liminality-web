@@ -37,3 +37,21 @@ export interface PageContentProps {
     heading: string,
     content: string
 }
+
+export interface SnapPreviewProps {
+    image: string,
+    left?: string,
+    right?: string,
+    top?: string,
+    caption?: string
+    setCaptionText?: (value: string) => void
+}
+
+export interface imageListProps {
+    firstRow: SnapPreviewProps[],
+    secondRow: SnapPreviewProps[],
+}
+
+export interface SnapGalleryProps {
+    items: imageListProps []
+}

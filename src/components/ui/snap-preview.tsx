@@ -4,16 +4,19 @@ import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 
 // props
-interface SnapPreviewProps {
-    image: string,
-    left?: string,
-    right?: string,
-    top?: string
-}
+import type { SnapPreviewProps } from "../../interfaces/props";
 
-const SnapReview: React.FC<SnapPreviewProps> = ({ image, left, right, top }) => {
+const SnapReview: React.FC<SnapPreviewProps> = ({ image, left, right, top, caption, setCaptionText }) => {
     const [xCoords, setXCords] = useState<number>(0);
     const [yCoords, setYCords] = useState<number>(0);
+
+    const handleCaptionDisplay = () => {
+        if (setCaptionText) {
+            if (caption) {
+                setCaptionText(caption);   
+            }
+        }
+    }
 
     useEffect(() => {
         const getCoords = (e: any) => {
@@ -59,10 +62,12 @@ const SnapReview: React.FC<SnapPreviewProps> = ({ image, left, right, top }) => 
                     }}>[ {yCoords} ]</Typography>
                 </Box>
 
-                <img style={{
-                    width: '12vw',
-                    border: '1px solid rgba(179, 179, 179, .15)',
-                }}
+                <img
+                    onMouseOver={handleCaptionDisplay}
+                    style={{
+                        width: '12vw',
+                        border: '1px solid rgba(179, 179, 179, .15)',
+                    }}
                     className="chamber-snap"
                     src={`/images/chamber-one/${image}.jpg`} alt="" />
 
