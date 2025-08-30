@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 // MUI
 import { Box } from "@mui/material";
@@ -15,6 +16,11 @@ import { parentWrapperStyles } from "../utils/wrapper-styles";
 import { chamberOneImageList } from "../utils/chamber-image-lists";
 
 const ChamberOne: React.FC = () => {
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location]);
+
     return (
         <>
             <Topbar positionalString="chamber one" />

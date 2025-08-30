@@ -1,23 +1,54 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // MUI
-import { Backdrop } from "@mui/material";
+import { Backdrop, Button } from "@mui/material";
 import { Fade } from "@mui/material";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
-import { Button } from "@mui/material";
 
 // props
 import type { TransitionProps } from "../../interfaces/props";
+import type { SecondaryTextProps } from "../../interfaces/props";
 
-const Transition: React.FC<TransitionProps> = ({ showOverlay, setEntryAccepted, nextRoute }) => {
+const SecondaryText: React.FC<SecondaryTextProps> = ({ textLines, showOverlay }) => {
+    return (
+        <>
+            {textLines.map((line, index) => (
+                <Typography key={index}
+                    sx={{
+                        fontFamily: 'GeistMono-Medium',
+                        textTransform: 'uppercase',
+                        fontSize: 15,
+                        letterSpacing: .85,
+                        opacity: showOverlay ? 1 : 0,
+                        transition: 'all 2.5s ease-in-out',
+                        transitionDelay: '3s',
+                        color: '#B7B7B7',
+                        px: 2,
+                        py: 1.85,
+                        mt: -3
+                    }}>{line}</Typography>
+            ))}
+
+        </>
+    )
+}
+
+const Transition: React.FC<TransitionProps> = ({ chamberSection, chamberTitle, textLines, showOverlay, setEntryAccepted, nextRoute }) => {
     const navigate = useNavigate();
 
     const navigateToNextRoute = () => {
-        setEntryAccepted(true)
+        setEntryAccepted(true);
         navigate(`${nextRoute}`);
+        localStorage.setItem('isTransitionOverlayOpened', "false");
     }
+
+    useEffect(() => {
+        if (showOverlay) {
+            localStorage.setItem('isTransitionOverlayOpened', "true");
+        }
+    }, [showOverlay])
 
     return (
         <>
@@ -33,48 +64,62 @@ const Transition: React.FC<TransitionProps> = ({ showOverlay, setEntryAccepted, 
                     bottom: 0,
                 }}>
                 <Fade in={showOverlay} timeout={2000}>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            height: '100vh',
-                            textAlign: 'center',
-                            color: 'white',
-                        }}
-                    >
-                        <Typography
-                            variant="h2"
-                            sx={{
-                                fontFamily: 'GeistMono-Light',
-                                textTransform: 'uppercase',
-                                fontSize: 25,
-                                mb: 4,
-                                letterSpacing: 1.25,
-                                opacity: showOverlay ? 1 : 0,
-                                transition: 'opacity 3s ease-in-out',
-                                transitionDelay: '1s'
-                            }}>
-                            Tangible Realities
-                        </Typography>
+                    <Box sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: '100vh',
+                        textAlign: 'center',
+                        color: 'white',
+                    }}>
+                        <Typography sx={{
+                            fontFamily: 'GeistMono-Medium',
+                            textTransform: 'uppercase',
+                            fontSize: 14,
+                            opacity: showOverlay ? 1 : 0,
+                            transition: 'all 2.5s ease-in-out',
+                            transitionDelay: '1s',
+                            color: '#B7B7B7',
+                            px: 1.25,
+                            py: 1.25,
+                            letterSpacing: 0.85,
+                        }}>{chamberSection}</Typography>
 
-                        <Button
-                            variant="outlined"
-                            onClick={navigateToNextRoute}
+                        <Typography sx={{
+                            fontFamily: 'GeistMono-Medium',
+                            textTransform: 'uppercase',
+                            fontSize: 20,
+                            letterSpacing: .85,
+                            opacity: showOverlay ? 1 : 0,
+                            transition: 'all 2.5s ease-in-out',
+                            transitionDelay: '2s',
+                            bgcolor: '#B7B7B7',
+                            color: 'black',
+                            px: 1.25,
+                            py: 1.25,
+                            mt: 1
+                        }}>{chamberTitle}</Typography>
+
+                        <Box sx={{ mt: 5.5 }}>
+                            <SecondaryText textLines={textLines} showOverlay={showOverlay} />
+                        </Box>
+
+                        <Button onClick={navigateToNextRoute}
                             sx={{
-                                border: '1px solid white',
-                                color: 'white',
-                                px: 2,
-                                py: 2,
-                                fontFamily: 'GeistMono-Light',
-                                letterSpacing: '0.05em',
+                                border: '1px solid rgba(183, 183, 183, .55)',
+                                color: '#B7B7B7',
+                                px: 2.25,
+                                py: 1.85,
+                                fontFamily: 'GeistMono-Medium',
                                 opacity: showOverlay ? 1 : 0,
-                                // transition: 'all 3s ease-in-out',
-                                transitionDelay: '2s',
-                                fontSize: 12,
+                                transition: 'all 2.5s ease-in-out',
+                                transitionDelay: '4s',
+                                fontSize: 13,
+                                borderRadius: 0,
+                                mt: 3
                             }}>
-                            Enter chamber one
+                            Enter chamber one →
                         </Button>
                     </Box>
                 </Fade>

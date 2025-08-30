@@ -1,7 +1,10 @@
 import React from "react";
 
 // MUI
-import { Typography, Box } from "@mui/material";
+import { Box } from "@mui/material";
+
+// components
+import Paragraph from "../../ui/paragraph";
 
 // utils
 import { journeyContent } from "../../../utils/journey-content";
@@ -11,23 +14,9 @@ const Journey: React.FC = () => {
         <>
             {journeyContent.map((item, index) => (
                 <Box key={index}>
-                    <Box>
-                        <Typography sx={{
-                            color: '#ACACAC',
-                            fontSize: 14,
-                            textTransform: 'uppercase',
-                            fontFamily: 'GeistMono-Light',
-                            lineHeight: 1.65,
-                            letterSpacing: 1.45
-                        }}>
-                            {item.content}
-                        </Typography>
-                    </Box>
+                    <Paragraph content={item.content} />
 
-                    <Box sx={{
-                        mt: 6,
-                        mb: 6
-                    }}>
+                    <Box sx={{ mt: 6, mb: 6 }}>
                         <img style={{
                             width: '100%',
                         }} src={item.imageIndex} alt="" />

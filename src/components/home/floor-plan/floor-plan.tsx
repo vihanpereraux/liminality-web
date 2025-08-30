@@ -22,7 +22,7 @@ const FloorPlan: React.FC = () => {
                 display: 'flex',
                 justifyContent: 'space-between',
                 mt: 2,
-                mb: 20
+                mb: 2
             }}>
                 {textList.map((item, index) => (
                     <Box key={index}>
