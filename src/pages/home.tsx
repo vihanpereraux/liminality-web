@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // MUI
 import { Box } from "@mui/material"
@@ -12,8 +11,10 @@ import Journey from "../components/home/journey/journey"
 import FloorPlan from "../components/home/floor-plan/floor-plan"
 import Transition from "../components/home/transition";
 
+// utils
+import { parentWrapperStyles } from "../utils/wrapper-styles";
+
 const Home: React.FC = () => {
-    // const navigate = useNavigate();
     const hasLoggedBottom = useRef(false);
     const [showOverlay, setShowOverlay] = useState(true);
     const [entryAccepted, setEntryAccepted] = useState<boolean>(false);
@@ -48,7 +49,7 @@ const Home: React.FC = () => {
         <>
             <Topbar positionalString="welcome" />
 
-            <Box sx={{ pl: '12vw', pr: '12vw', mt: 15 }}>
+            <Box sx={parentWrapperStyles}>
                 <Welcome />
 
                 <SectionBreaker heading="journey" number="002" />
