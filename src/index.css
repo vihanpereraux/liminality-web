@@ -15,6 +15,11 @@
 }
 
 @font-face {
+  font-family: 'GeistMono-Regular';
+  src: url(../public/fonts/GeistMono-Regular.woff2);
+}
+
+@font-face {
   font-family: 'Geist-Medium';
   src: url(../public/fonts/Geist-Medium.woff2);
 }

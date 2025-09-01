@@ -2,7 +2,7 @@ import React from "react";
 
 // r3f
 import { Canvas } from "@react-three/fiber";
-import { Environment } from "@react-three/drei";
+// import { Environment } from "@react-three/drei";
 
 // components
 import Model from "./model";

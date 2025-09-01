@@ -13,7 +13,7 @@ const Paragraph: React.FC<ParagraphProps> = ({ content }) => {
                 color: '#ACACAC',
                 fontSize: 14,
                 textTransform: 'uppercase',
-                fontFamily: 'GeistMono-Medium',
+                fontFamily: 'GeistMono-Regular',
                 lineHeight: 1.65,
                 letterSpacing: 1.45,
                 textIndent: 100,

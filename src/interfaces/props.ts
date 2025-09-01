@@ -67,3 +67,7 @@ export interface SecondaryTextProps {
 export interface ParagraphProps {
     content: string
 }
+
+export interface ScrollTriggerProps {
+    targetScreen: string,
+}

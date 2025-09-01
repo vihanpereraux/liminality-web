@@ -59,7 +59,6 @@ const Welcome: React.FC = () => {
                 {/* three canvas */}
                 <Scene />
 
-
                 {/* markers */}
                 <Box sx={{
                     width: 55,
