@@ -7,19 +7,22 @@ import ChamberOne from "./pages/chamber-one"
 import ChamberTwo from "./pages/chamber-two"
 import Tunnel from "./pages/tunnel"
 
+// hooks
+import { useLenis } from "./hooks/useLenis"
+
 const App: React.FC = () => {
+  useLenis()
+
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" Component={Home}></Route>
-          <Route path="/chamber-one" Component={ChamberOne}></Route>
-          <Route path="/chamber-two" Component={ChamberTwo}></Route>
-          <Route path="/tunnel" Component={Tunnel}></Route>
-        </Routes>
-      </BrowserRouter>
-
-
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" Component={Home}></Route>
+            <Route path="/chamber-one" Component={ChamberOne}></Route>
+            <Route path="/chamber-two" Component={ChamberTwo}></Route>
+            <Route path="/tunnel" Component={Tunnel}></Route>
+          </Routes>
+        </BrowserRouter>
     </>
   )
 }
