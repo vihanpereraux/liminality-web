@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 // MUI
 import { Box, Typography } from "@mui/material";
 
+// components
+import Scene from "./scene";
+
 // utils
 import { textList } from "../../../utils/text-list";
 
@@ -54,6 +57,8 @@ const Welcome: React.FC = () => {
                 position: 'relative'
             }}>
                 {/* three canvas */}
+                <Scene />
+
 
                 {/* markers */}
                 <Box sx={{
@@ -71,7 +76,7 @@ const Welcome: React.FC = () => {
                 }}>
                     <Typography sx={{
                         fontSize: 9,
-                        fontFamily: 'Geist-Medium'
+                        fontFamily: 'GeistMono-Medium',
                     }}>[ + {xCoords} ]</Typography>
                 </Box>
 
@@ -90,30 +95,9 @@ const Welcome: React.FC = () => {
                 }}>
                     <Typography sx={{
                         fontSize: 9,
-                        fontFamily: 'Geist-Medium'
+                        fontFamily: 'GeistMono-Medium',
                     }}>[ + {yCoords} ]</Typography>
                 </Box>
-
-                {/* ver/hor lines */}
-                {/* <Box sx={{
-                    position: 'fixed',
-                    width: '1px',
-                    height: '100%',
-                    bgcolor: '#B3B3B3',
-                    opacity: .2,
-                    top: 0,
-                    left: '10%',
-                }}></Box>
-
-                <Box sx={{
-                    position: 'fixed',
-                    width: '1px',
-                    height: '100%',
-                    bgcolor: '#B3B3B3',
-                    opacity: .2,
-                    top: 0,
-                    right: '10%',
-                }}></Box> */}
             </Box>
 
             <Box sx={{
@@ -138,13 +122,13 @@ const Welcome: React.FC = () => {
                                 <Typography sx={{
                                     color: 'black',
                                     fontSize: 10,
-                                    fontFamily: 'Geist-SemiBold',
+                                    fontFamily: 'GeistMono-Medium',
                                 }}>{item.title}</Typography>
                             </Box>
                         </Box>
                         <Typography sx={{
                             color: '#B7B7B7',
-                            fontFamily: 'Geist-Medium',
+                            fontFamily: 'GeistMono-Medium',
                             textTransform: 'uppercase',
                             fontSize: 10,
                             mt: 1
