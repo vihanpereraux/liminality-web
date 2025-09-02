@@ -71,3 +71,7 @@ export interface ParagraphProps {
 export interface ScrollTriggerProps {
     targetScreen: string,
 }
+
+export interface LabelProps {
+    text: string
+}

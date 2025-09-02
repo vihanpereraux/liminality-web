@@ -5,6 +5,7 @@ import { Box, Typography } from "@mui/material";
 
 // components
 import Scene from "./scene";
+import Label from "../../ui/label";
 
 // utils
 import { textList } from "../../../utils/text-list";
@@ -110,20 +111,7 @@ const Welcome: React.FC = () => {
                             display: 'flex',
                             justifyContent: getTextPlacement(index)
                         }}>
-                            <Box sx={{
-                                textTransform: 'uppercase',
-                                backgroundColor: '#B7B7B7',
-                                width: 'fit-content',
-                                p: .45,
-                                pr: .85,
-                                pl: .85,
-                            }}>
-                                <Typography sx={{
-                                    color: 'black',
-                                    fontSize: 10,
-                                    fontFamily: 'GeistMono-Medium',
-                                }}>{item.title}</Typography>
-                            </Box>
+                            <Label text={item.title} />
                         </Box>
                         <Typography sx={{
                             color: '#B7B7B7',
