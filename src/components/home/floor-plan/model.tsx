@@ -92,7 +92,7 @@ const Model: React.FC = () => {
                 ref={lightRef}
                 position={mousePosition}
                 color="rgba(255, 255, 255, 1)"
-                intensity={1}
+                intensity={2.55}
                 distance={1} />
 
             <group

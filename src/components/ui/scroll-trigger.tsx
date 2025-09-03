@@ -50,7 +50,7 @@ const ScrollTrigger: React.FC<ScrollTriggerProps> = ({ targetScreen }) => {
 
                     // Only activate progress mode after user has scrolled enough (200px worth)
                     if (preActivationScroll >= 1000) {
-                        console.log("Activating progress mode - user scrolled enough at bottom!");
+                        // console.log("Activating progress mode - user scrolled enough at bottom!");
                         isProgressActive = true;
                         setShowCircularProgress(true);
                         setHasReachedBottom(true);
@@ -80,16 +80,16 @@ const ScrollTrigger: React.FC<ScrollTriggerProps> = ({ targetScreen }) => {
 
                     setScrollProgress(newProgress);
 
-                    console.log('Over-scroll Progress:', {
-                        deltaY: e.deltaY,
-                        accumulatedScroll,
-                        newProgress,
-                        isProgressActive
-                    });
+                    // console.log('Over-scroll Progress:', {
+                    //     deltaY: e.deltaY,
+                    //     accumulatedScroll,
+                    //     newProgress,
+                    //     isProgressActive
+                    // });
 
                     // When progress reaches 100%, show transition
                     if (newProgress >= 100 && !hasLoggedBottom.current) {
-                        console.log("Over-scroll complete - showing transition!");
+                        // console.log("Over-scroll complete - showing transition!");
                         hasLoggedBottom.current = true;
                         setTimeout(() => {
                             setShowCircularProgress(false);
@@ -99,7 +99,7 @@ const ScrollTrigger: React.FC<ScrollTriggerProps> = ({ targetScreen }) => {
 
                     // If user backscrolls to 0, deactivate progress mode
                     if (newProgress <= 0) {
-                        console.log("User backscrolled to 0 - deactivating progress mode");
+                        // console.log("User backscrolled to 0 - deactivating progress mode");
                         setShowCircularProgress(false);
                         setHasReachedBottom(false);
                         isProgressActive = false;
@@ -125,7 +125,7 @@ const ScrollTrigger: React.FC<ScrollTriggerProps> = ({ targetScreen }) => {
 
                 // Only reset if user scrolled up more than 50px from bottom
                 if (scrollFromBottom > 50) {
-                    console.log("User scrolled away from bottom - full reset");
+                    // console.log("User scrolled away from bottom - full reset");
                     setHasReachedBottom(false);
                     setScrollProgress(0);
                     setShowCircularProgress(false);

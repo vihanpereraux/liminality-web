@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 // components
 import DetailBox from "./detail-box";
 
+// MUI
+import { Box } from "@mui/material";
+
 // utils
 import { getDetails } from "../../../utils/floor-plan-details";
 
@@ -81,6 +84,76 @@ const Details: React.FC = () => {
                 hoverText: "hoverText as string",
                 displayText: "displayText as string"
             }} />
+
+            {isHovering && (
+                <>
+                    <Box sx={{
+                        position: 'absolute',
+                        right: 10,
+                        top: '35%',
+                        width: '6px',
+                        height: '1px',
+                        bgcolor: '#B7B7B7',
+                        zIndex: 1,
+                        transform: 'translateY(-50%)'
+                    }}></Box>
+
+                    <Box sx={{
+                        position: 'absolute',
+                        right: 10,
+                        top: '45%',
+                        width: '6px',
+                        height: '1px',
+                        bgcolor: '#B7B7B7',
+                        zIndex: 1,
+                        transform: 'translateY(-50%)'
+                    }}></Box>
+
+                    <Box sx={{
+                        position: 'absolute',
+                        right: 10,
+                        top: '55%',
+                        width: '6px',
+                        height: '1px',
+                        bgcolor: '#B7B7B7',
+                        zIndex: 1,
+                        transform: 'translateY(-50%)'
+                    }}></Box>
+
+                    <Box sx={{
+                        position: 'absolute',
+                        left: 10,
+                        top: '35%',
+                        width: '6px',
+                        height: '1px',
+                        bgcolor: '#B7B7B7',
+                        zIndex: 1,
+                        transform: 'translateY(-50%)'
+                    }}></Box>
+
+                    <Box sx={{
+                        position: 'absolute',
+                        left: 10,
+                        top: '45%',
+                        width: '6px',
+                        height: '1px',
+                        bgcolor: '#B7B7B7',
+                        zIndex: 1,
+                        transform: 'translateY(-50%)'
+                    }}></Box>
+
+                    <Box sx={{
+                        position: 'absolute',
+                        left: 10,
+                        top: '55%',
+                        width: '6px',
+                        height: '1px',
+                        bgcolor: '#B7B7B7',
+                        zIndex: 1,
+                        transform: 'translateY(-50%)'
+                    }}></Box>
+                </>
+            )}
         </>
     )
 }
