@@ -75,3 +75,7 @@ export interface ScrollTriggerProps {
 export interface LabelProps {
     text: string
 }
+
+export interface WavyImageProps {
+    image: string
+} 
