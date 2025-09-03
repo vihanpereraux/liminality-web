@@ -100,7 +100,7 @@ const FloorPlan: React.FC = () => {
                         }}>
                             <Typography sx={{
                                 color: '#B7B7B7',
-                                fontSize: 10,
+                                fontSize: 8,
                                 fontFamily: 'GeistMono-Medium',
                                 textAlign: 'center'
                             }}>{item.title}</Typography>

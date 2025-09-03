@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import DetailBox from "./detail-box";
 
 // MUI
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 // utils
 import { getDetails } from "../../../utils/floor-plan-details";
@@ -13,6 +13,20 @@ const Details: React.FC = () => {
     const [hoverText, setHoverText] = useState<string | null>(null);
     const [isHovering, setIsHovering] = useState(false);
     const [displayText, setDisplayText] = useState<string>("");
+    const [xCoords, setXCords] = useState<number>(0);
+    const [yCoords, setYCords] = useState<number>(0);
+
+    useEffect(() => {
+        const getCoords = (e: any) => {
+            setXCords(e.clientX);
+            setYCords(e.clientY);
+        }
+        window.addEventListener('mousemove', getCoords)
+
+        return () => {
+            window.removeEventListener('mousemove', getCoords)
+        }
+    }, [])
 
     // Floor plan hover event listener
     useEffect(() => {
@@ -85,7 +99,7 @@ const Details: React.FC = () => {
                 displayText: "displayText as string"
             }} />
 
-            {isHovering && (
+            {true && (
                 <>
                     <Box sx={{
                         position: 'absolute',
@@ -154,6 +168,66 @@ const Details: React.FC = () => {
                     }}></Box>
                 </>
             )}
+
+            <Typography sx={{
+                fontFamily: 'GeistMono-Medium',
+                fontSize: 10,
+                color: '#B7B7B7',
+                textTransform: 'uppercase',
+                lineHeight: 1.65,
+                letterSpacing: 1.45,
+                position: 'absolute',
+                top: 40,
+                transform: 'translate(-50%, -50%)',
+                left: '36%',
+                zIndex: 1,
+                background: "one"
+            }}>	[{xCoords}]</Typography>
+
+            <Typography sx={{
+                fontFamily: 'GeistMono-Medium',
+                fontSize: 10,
+                color: '#B7B7B7',
+                textTransform: 'uppercase',
+                lineHeight: 1.65,
+                letterSpacing: 1.45,
+                position: 'absolute',
+                top: 40,
+                transform: 'translate(-50%, -50%)',
+                left: '64%',
+                zIndex: 1,
+                background: "one"
+            }}>	[{yCoords}]</Typography>
+
+            <Typography sx={{
+                fontFamily: 'GeistMono-Medium',
+                fontSize: 10,
+                color: '#B7B7B7',
+                textTransform: 'uppercase',
+                lineHeight: 1.65,
+                letterSpacing: 1.45,
+                position: 'absolute',
+                bottom: 40,
+                transform: 'translate(-50%, -50%)',
+                left: '36%',
+                zIndex: 1,
+                background: "one"
+            }}>	[23.6297]</Typography>
+
+            <Typography sx={{
+                fontFamily: 'GeistMono-Medium',
+                fontSize: 10,
+                color: '#B7B7B7',
+                textTransform: 'uppercase',
+                lineHeight: 1.65,
+                letterSpacing: 1.45,
+                position: 'absolute',
+                bottom: 40,
+                transform: 'translate(-50%, -50%)',
+                left: '64%',
+                zIndex: 1,
+                background: "one"
+            }}>	[58.4944]</Typography>
         </>
     )
 }
