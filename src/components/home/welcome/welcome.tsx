@@ -64,7 +64,6 @@ const Welcome: React.FC = () => {
                 <Box sx={{
                     width: 55,
                     aspectRatio: 1,
-                    // p: .25,
                     bgcolor: '#B7B7B7',
                     display: 'flex',
                     alignItems: 'center',
@@ -72,19 +71,32 @@ const Welcome: React.FC = () => {
                     position: 'absolute',
                     right: -80,
                     top: '18%',
-                    // transform: 'translateX(-50%)',
                 }}>
+                    <img style={{
+                        position: 'absolute',
+                        right: -.7,
+                        top: 0,
+                        width: '20%',
+                    }} src="/icons/corner-icon.svg" alt="" />
+
                     <Typography sx={{
-                        fontSize: 9,
+                        fontSize: 8,
                         fontFamily: 'GeistMono-Medium',
-                    }}>[ + {xCoords} ]</Typography>
+                    }}>[+ {xCoords}]</Typography>
+
+                    <img style={{
+                        position: 'absolute',
+                        left: -.7,
+                        bottom: 0,
+                        width: '20%',
+                        transform: 'rotate(180deg)'
+                    }} src="/icons/corner-icon.svg" alt="" />
                 </Box>
 
                 {/* markers */}
                 <Box sx={{
                     width: 55,
                     aspectRatio: 1,
-                    // p: .25,
                     bgcolor: '#B7B7B7',
                     display: 'flex',
                     alignItems: 'center',
@@ -93,10 +105,25 @@ const Welcome: React.FC = () => {
                     left: -80,
                     bottom: '18%'
                 }}>
+                    <img style={{
+                        position: 'absolute',
+                        left: -.7,
+                        bottom: 0,
+                        width: '20%',
+                        transform: 'rotate(180deg)'
+                    }} src="/icons/corner-icon.svg" alt="" />
+
                     <Typography sx={{
-                        fontSize: 9,
+                        fontSize: 8,
                         fontFamily: 'GeistMono-Medium',
-                    }}>[ + {yCoords} ]</Typography>
+                    }}>[+ {yCoords}]</Typography>
+
+                    <img style={{
+                        position: 'absolute',
+                        right: -.7,
+                        top: 0,
+                        width: '20%',
+                    }} src="/icons/corner-icon.svg" alt="" />
                 </Box>
             </Box>
 

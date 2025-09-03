@@ -212,7 +212,7 @@ const Details: React.FC = () => {
                 left: '36%',
                 zIndex: 1,
                 background: "one"
-            }}>	[23.6297]</Typography>
+            }}>	[23.5097]</Typography>
 
             <Typography sx={{
                 fontFamily: 'GeistMono-Medium',
@@ -227,7 +227,7 @@ const Details: React.FC = () => {
                 left: '64%',
                 zIndex: 1,
                 background: "one"
-            }}>	[58.4944]</Typography>
+            }}>	[58.5038]</Typography>
         </>
     )
 }

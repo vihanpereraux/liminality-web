@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 
 // components
 import Paragraph from "../../ui/paragraph";
+import RippleImage from "./wavy-image";
 
 // utils
 import { journeyContent } from "../../../utils/journey-content";
@@ -16,10 +17,21 @@ const Journey: React.FC = () => {
                 <Box key={index}>
                     <Paragraph content={item.content} />
 
-                    <Box sx={{ mt: 6, mb: 6 }}>
+                    {/* <Box sx={{ mt: 6, mb: 6 }}>
                         <img style={{
                             width: '100%',
                         }} src={item.imageIndex} alt="" />
+                    </Box> */}
+
+                    <Box sx={{
+                        // border: '1px solid red',
+                        width: '100%',
+                        height: '660px',
+                        position: 'relative',
+                        mt: 8, 
+                        mb: 8
+                    }}>
+                        <RippleImage image={item.imageIndex} />
                     </Box>
                 </Box>
             ))}
