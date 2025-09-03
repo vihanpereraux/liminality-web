@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 // MUI
 import { Box } from "@mui/material"
@@ -9,41 +9,13 @@ import SectionBreaker from "../components/ui/section-breaker"
 import Welcome from "../components/home/welcome/welcome"
 import Journey from "../components/home/journey/journey"
 import FloorPlan from "../components/home/floor-plan/floor-plan"
-import Transition from "../components/home/transition";
+import ScrollTrigger from "../components/ui/scroll-trigger";
 
 // utils
 import { parentWrapperStyles } from "../utils/wrapper-styles";
 
 const Home: React.FC = () => {
-    const hasLoggedBottom = useRef(false);
-    const [showOverlay, setShowOverlay] = useState(true);
-    const [entryAccepted, setEntryAccepted] = useState<boolean>(false);
-
-    if (entryAccepted) {
-        // navigate('/chamber-one');
-    }
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                if (!hasLoggedBottom.current) {
-                    console.log("User has reached the very bottom of the page!");
-                    hasLoggedBottom.current = true;
-                    setShowOverlay(true);
-                }
-            } else {
-                hasLoggedBottom.current = false;
-            }
-        };
-
-        // Add scroll event listener
-        window.addEventListener('scroll', handleScroll);
-
-        // Cleanup function to remove event listener
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+    localStorage.setItem('isTransitionOverlayOpened', "false");
 
     return (
         <>
@@ -61,11 +33,7 @@ const Home: React.FC = () => {
                 <FloorPlan />
             </Box>
 
-            {/* transition */}
-            <Transition
-                nextRoute="/chamber-one"
-                showOverlay={showOverlay}
-                setEntryAccepted={setEntryAccepted} />
+            <ScrollTrigger targetScreen="screenOne" />
         </>
     )
 }

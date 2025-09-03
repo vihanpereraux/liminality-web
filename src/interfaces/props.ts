@@ -24,8 +24,11 @@ export interface ChamberSectionBreakerProps {
 
 export interface TransitionProps {
     showOverlay: boolean,
+    chamberSection: string,
+    chamberTitle: string,
     setEntryAccepted: (value: boolean) => void
-    nextRoute: string
+    nextRoute: string,
+    textLines: string []
 }
 
 export interface PageHeadingProps {
@@ -54,4 +57,21 @@ export interface imageListProps {
 
 export interface SnapGalleryProps {
     items: imageListProps []
+}
+
+export interface SecondaryTextProps {
+    textLines: string [],
+    showOverlay: boolean
+}
+
+export interface ParagraphProps {
+    content: string
+}
+
+export interface ScrollTriggerProps {
+    targetScreen: string,
+}
+
+export interface LabelProps {
+    text: string
 }

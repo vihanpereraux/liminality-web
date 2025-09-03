@@ -5,6 +5,7 @@ import { Box, Typography } from "@mui/material";
 
 // component
 import DotIndicator from "./dot-indicator";
+import Paragraph from "./paragraph";
 
 // props
 import type { PageContentProps } from "../../interfaces/props";
@@ -76,17 +77,7 @@ const PageContent: React.FC<PageContentProps> = ({ heading, content }) => {
             }}></Box>
 
             <Box sx={{ mt: 2.55 }}>
-                <Typography sx={{
-                    color: '#ACACAC',
-                    fontSize: 14,
-                    textTransform: 'uppercase',
-                    fontFamily: 'GeistMono-Light',
-                    lineHeight: 1.65,
-                    letterSpacing: 1.45,
-                    textIndent: 100
-                }}>
-                    {content}
-                </Typography>
+                <Paragraph content={content} />
             </Box>
         </>
     )

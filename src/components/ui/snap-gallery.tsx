@@ -11,7 +11,7 @@ import SnapReview from "./snap-preview";
 import type { SnapGalleryProps } from "../../interfaces/props";
 
 const SnapGallery: React.FC<SnapGalleryProps> = ({ items }) => {
-    const [captionText, setCaptoinText] = useState<string>("");
+    const [captionText, setCaptoinText] = useState<string>("hover on images");
 
     const imageGalleryRef = useRef<HTMLDivElement>(null);
     const plane1 = useRef<HTMLDivElement>(null);
@@ -129,9 +129,7 @@ const SnapGallery: React.FC<SnapGalleryProps> = ({ items }) => {
                         fontFamily: 'GeistMono-Medium',
                         textTransform: 'uppercase',
                         fontSize: 12,
-                        mt: .75,
-                        px: 1,
-                        py: 1
+                        mt: 2,
                     }}>{captionText}</Typography>
                 </Box>
             </Box>
