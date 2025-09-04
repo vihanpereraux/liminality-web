@@ -76,7 +76,7 @@ const Model: React.FC = () => {
     useFrame((_, delta) => {
         if (meshRef.current) {
             if (!false) {
-                meshRef.current.rotation.y += delta * 0.1;   
+                meshRef.current.rotation.y += delta * 0.1;
             }
         }
 
@@ -86,7 +86,6 @@ const Model: React.FC = () => {
     });
 
     return (
-
         <>
             <pointLight
                 ref={lightRef}
@@ -95,30 +94,21 @@ const Model: React.FC = () => {
                 intensity={2.55}
                 distance={1} />
 
-            <group
-                ref={meshRef}
-                scale={viewport.width / 3.27}>
-
-                <mesh
-                    // ref={meshRef}
-                    geometry={geometry}
+            <group ref={meshRef} scale={viewport.width / 3.27}>
+                <mesh geometry={geometry}
                     position={[0, 0.1, 0]}
                     rotation={[0, 0, 0]}
                     scale={[.30, .30, .30]}
                     castShadow
-                    receiveShadow>
+                    receiveShadow >
 
                     <meshStandardMaterial
                         color="rgba(180, 180, 180, 1)"
                         transparent={false}
-                        opacity={1}
-                    />
+                        opacity={1} />
                 </mesh>
 
-                {/* <OrbitControls /> */}
-            
-                <mesh 
-                    scale={[.5, .3, .5]} 
+                <mesh scale={[.5, .3, .5]}
                     position={[0.5, .125, 0]}
                     onPointerEnter={(e) => {
                         e.stopPropagation();
@@ -148,8 +138,8 @@ const Model: React.FC = () => {
                     <meshBasicMaterial color={'black'} wireframe />
                 </mesh>
 
-                <mesh 
-                    scale={[.5, .3, .5]} 
+                <mesh
+                    scale={[.5, .3, .5]}
                     position={[-0.5, .125, 0]}
                     onPointerEnter={(e) => {
                         e.stopPropagation();
@@ -179,8 +169,8 @@ const Model: React.FC = () => {
                     <meshBasicMaterial color={'black'} wireframe />
                 </mesh>
 
-                <mesh 
-                    scale={[.5, .12, .25]} 
+                <mesh
+                    scale={[.5, .12, .25]}
                     position={[0, 0.05, 0]}
                     onPointerEnter={(e) => {
                         e.stopPropagation();
