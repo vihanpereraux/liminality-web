@@ -13,10 +13,7 @@ const Scene: React.FC = () => {
             <Canvas
                 style={{ background: 'rgb(0, 0, 0)' }}
                 shadows
-                camera={{
-                    position: [0, 0, 5],
-                    fov: 40
-                }}>
+                camera={{ position: [0, 0, 5], fov: 40 }}>
                 <Model />
                 <ambientLight intensity={0.35} />
             </Canvas>

@@ -23,7 +23,7 @@ const SecondaryText: React.FC<SecondaryTextProps> = ({ textLines, showOverlay })
                         letterSpacing: .85,
                         opacity: showOverlay ? 1 : 0,
                         transition: 'all 2.5s ease-in-out',
-                        transitionDelay: '3s',
+                        transitionDelay: showOverlay ? '3s' : '0s',
                         color: '#B7B7B7',
                         px: 2,
                         py: 1.85,
@@ -39,9 +39,14 @@ const Transition: React.FC<TransitionProps> = ({ chamberSection, chamberTitle, t
     const navigate = useNavigate();
 
     const navigateToNextRoute = () => {
+        // First trigger the fadeout by setting entry accepted
         setEntryAccepted(true);
-        navigate(`${nextRoute}`);
         localStorage.setItem('isTransitionOverlayOpened', "false");
+        
+        // Wait for the fadeout animation to complete before navigating
+        setTimeout(() => {
+            navigate(`${nextRoute}`);
+        }, 1000); // Match the exit timeout duration
     }
 
     useEffect(() => {
@@ -63,7 +68,7 @@ const Transition: React.FC<TransitionProps> = ({ chamberSection, chamberTitle, t
                     right: 0,
                     bottom: 0,
                 }}>
-                <Fade in={showOverlay} timeout={2000}>
+                <Fade in={showOverlay} timeout={{ enter: 2000, exit: 1000 }}>
                     <Box sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -79,7 +84,7 @@ const Transition: React.FC<TransitionProps> = ({ chamberSection, chamberTitle, t
                             fontSize: 14,
                             opacity: showOverlay ? 1 : 0,
                             transition: 'all 2.5s ease-in-out',
-                            transitionDelay: '1s',
+                            transitionDelay: showOverlay ? '1s' : '0s',
                             color: '#B7B7B7',
                             px: 1.25,
                             py: 1.25,
@@ -93,7 +98,7 @@ const Transition: React.FC<TransitionProps> = ({ chamberSection, chamberTitle, t
                             letterSpacing: .85,
                             opacity: showOverlay ? 1 : 0,
                             transition: 'all 2.5s ease-in-out',
-                            transitionDelay: '2s',
+                            transitionDelay: showOverlay ? '2s' : '0s',
                             bgcolor: '#B7B7B7',
                             color: 'black',
                             px: 1.25,
@@ -114,7 +119,7 @@ const Transition: React.FC<TransitionProps> = ({ chamberSection, chamberTitle, t
                                 fontFamily: 'GeistMono-Medium',
                                 opacity: showOverlay ? 1 : 0,
                                 transition: 'all 2.5s ease-in-out',
-                                transitionDelay: '4s',
+                                transitionDelay: showOverlay ? '4s' : '0s',
                                 fontSize: 13,
                                 borderRadius: 0,
                                 mt: 3
