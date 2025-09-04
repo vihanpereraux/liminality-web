@@ -33,7 +33,7 @@ const Home: React.FC = () => {
                 <FloorPlan />
             </Box>
 
-            <ScrollTrigger targetScreen="screenOne" />
+            <ScrollTrigger targetScreen="screenFour" />
         </>
     )
 }
