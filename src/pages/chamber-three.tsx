@@ -18,13 +18,13 @@ import ScrollTrigger from "../components/ui/scroll-trigger";
 import { parentWrapperStyles } from "../utils/wrapper-styles";
 import { chamberOneImageList } from "../utils/chamber-image-lists";
 
-const ChamberTwo: React.FC = () => {
+const ChamberThree: React.FC = () => {
     const location = useLocation();
     useEffect(() => { window.scrollTo(0, 0) }, [location]);
 
     return (
         <>
-            <Topbar positionalString="chamber two" />
+            <Topbar positionalString="chamber three" />
             <TopbarShader />
 
             <FadeOutTransition duration={3000} delay={300}>
@@ -32,7 +32,7 @@ const ChamberTwo: React.FC = () => {
                     <ChamberSectionBreaker headingLeft="title" headingRight="tangible realities" />
 
                     {/* heading */}
-                    <PageHeading type="single" content={["EARTHSCAPES"]} />
+                    <PageHeading type="multi" content={["BENDING", "OF", "LIGHT"]} />
 
                     {/* video */}
                     <Box sx={{ mt: 2 }}>
@@ -120,10 +120,10 @@ const ChamberTwo: React.FC = () => {
                     </Box>
                 </Box>
 
-                <ScrollTrigger targetScreen="screenThree" />
+                <ScrollTrigger targetScreen="screenFour" />
             </FadeOutTransition>
         </>
     )
 }
 
-export default ChamberTwo;
+export default ChamberThree;

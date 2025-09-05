@@ -3,7 +3,6 @@ import React, { useState, useEffect, useMemo, useRef } from "react";
 // r3f
 import * as THREE from "three"
 import { Clouds, Cloud } from "@react-three/drei"
-import { OrbitControls } from "@react-three/drei"
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { MeshTransmissionMaterial } from "@react-three/drei"
@@ -151,8 +150,6 @@ const Model: React.FC = () => {
                     />
                 </Clouds>
             </mesh>
-
-            <OrbitControls />
         </>
     )
 }

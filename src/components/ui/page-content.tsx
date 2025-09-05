@@ -1,83 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
 // MUI
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 // component
-import DotIndicator from "./dot-indicator";
+// import DotIndicator from "./dot-indicator";
 import Paragraph from "./paragraph";
+import SectionBreaker from "./section-breaker";
 
 // props
 import type { PageContentProps } from "../../interfaces/props";
 
 const PageContent: React.FC<PageContentProps> = ({ heading, content }) => {
+    const [uppercase, setUppercase] = useState<boolean>(true);
+
     return (
         <>
-            <Box sx={{
-                display: 'flex',
-                justifyContent: 'space-between'
-            }}>
-                <Box sx={{
-                    display: 'flex',
-                    alignItems: 'center'
-                }}>
-                    <DotIndicator bgColor="#B3B3B3" />
+            <SectionBreaker
+                heading={heading}
+                number=""
+                textTransformSelection={true}
+                setUppercase={setUppercase} />
 
-                    <Typography sx={{
-                        ml: .85,
-                        color: '#B3B3B3',
-                        fontSize: 11,
-                        textTransform: 'uppercase',
-                        fontFamily: 'GeistMono-Medium',
-                        lineHeight: 1.65,
-                        letterSpacing: 1.45
-                    }}>[ {heading} ]</Typography>
-                </Box>
-
-                <Box sx={{
-                    display: 'flex'
-                }}>
-                    <Typography sx={{
-                        color: '#B3B3B3',
-                        fontSize: 11,
-                        textTransform: 'uppercase',
-                        fontFamily: 'GeistMono-Medium',
-                        lineHeight: 1.65,
-                        letterSpacing: 1.45
-                    }}>uppercase</Typography>
-
-                    <Typography sx={{
-                        color: '#B3B3B3',
-                        fontSize: 11,
-                        textTransform: 'uppercase',
-                        fontFamily: 'GeistMono-Medium',
-                        lineHeight: 1.65,
-                        ml: 1,
-                        mr: 1
-                    }}> | </Typography>
-
-                    <Typography sx={{
-                        color: '#B3B3B3',
-                        fontSize: 11,
-                        textTransform: 'uppercase',
-                        fontFamily: 'GeistMono-Medium',
-                        lineHeight: 1.65,
-                        letterSpacing: 1.45,
-                        opacity: .55
-                    }}>lowercase</Typography>
-                </Box>
-            </Box>
-
-            <Box sx={{
-                width: '100%',
-                height: '1px',
-                bgcolor: '#B3B3B3',
-                opacity: .25,
-                mt: 1
-            }}></Box>
-
-            <Box sx={{ mt: 2.55 }}>
-                <Paragraph content={content} />
+            <Box sx={{ mt: 3 }}>
+                <Paragraph content={content} uppercase={uppercase} />
             </Box>
         </>
     )

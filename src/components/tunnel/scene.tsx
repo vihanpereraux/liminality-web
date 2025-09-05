@@ -6,7 +6,6 @@ import { Box } from "@mui/material"
 // r3f
 import { Canvas } from "@react-three/fiber"
 import { PerspectiveCamera } from "@react-three/drei"
-// import { OrbitControls } from "@react-three/drei"
 import { Noise, EffectComposer, Vignette } from "@react-three/postprocessing";
 
 // components
@@ -49,7 +48,6 @@ const Scene: React.FC = () => {
                         <Noise opacity={.175} />
                         <Vignette eskil={false} offset={0.1} darkness={1} />
                     </EffectComposer>
-                    {/* <OrbitControls /> */}
                 </Canvas>
             </Box>
         </>
