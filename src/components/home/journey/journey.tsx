@@ -15,26 +15,26 @@ const Journey: React.FC = () => {
         <>
             {journeyContent.map((item, index) => (
                 <Box key={index}>
-                    <Paragraph content={item.content} />
-
-                    {/* <Box sx={{ mt: 6, mb: 6 }}>
-                        <img style={{
-                            width: '100%',
-                        }} src={item.imageIndex} alt="" />
-                    </Box> */}
+                    <Box sx={{ mt: 4, mb: 5 }}>
+                        <Paragraph uppercase={true} content={item.content} />
+                    </Box>
 
                     <Box sx={{
-                        // border: '1px solid red',
                         width: '100%',
                         height: '660px',
                         position: 'relative',
-                        mt: 8, 
-                        mb: 8
+                        mb: 6,
                     }}>
                         <RippleImage image={item.imageIndex} />
                     </Box>
                 </Box>
             ))}
+
+            {/* <Box sx={{ mt: 6, mb: 6 }}>
+                    <img style={{
+                        width: '100%',
+                    }} src={item.imageIndex} alt="" />
+            </Box> */}
         </>
     )
 }

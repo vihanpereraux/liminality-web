@@ -70,7 +70,7 @@ const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number, textTr
 
     return (
         <>
-            <Box sx={{ mt: 0, mb: 3 }}>
+            <Box sx={{ mt: 0, mb: 0 }}>
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'space-between'
@@ -171,7 +171,8 @@ const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number, textTr
                         width: '100%',
                         height: '500px',
                         position: 'absolute',
-                        top: '-250px'
+                        top: '-250px',
+                        pointerEvents: 'none'
                     }}>
                         <path style={{
                             stroke: '#B3B3B3',

@@ -4,6 +4,7 @@ import React from "react";
 import { Box } from "@mui/material"
 
 // components
+import TopbarShader from "../components/ui/topbar-shader";
 import Topbar from "../components/ui/topbar"
 import SectionBreaker from "../components/ui/section-breaker"
 import Welcome from "../components/home/welcome/welcome"
@@ -20,17 +21,28 @@ const Home: React.FC = () => {
 
     return (
         <>
-            <FadeOutTransition duration={3000} delay={300}>
-                <Topbar positionalString="welcome" />
+            <Topbar positionalString="welcome" />
+            <TopbarShader />
 
+            <FadeOutTransition duration={3000} delay={300}>
                 <Box sx={parentWrapperStyles}>
                     <Welcome />
 
-                    <SectionBreaker heading="journey" number="002" textTransformSelection={false} />
+                    <Box sx={{ mt: 10 }}>
+                        <SectionBreaker
+                            heading="journey"
+                            number="002"
+                            textTransformSelection={false} />
+                    </Box>
 
                     <Journey />
 
-                    <SectionBreaker heading="site plan" number="003" />
+                    <Box sx={{ mt: 10 }}>
+                        <SectionBreaker
+                            heading="site plan"
+                            number="003"
+                            textTransformSelection={false} />
+                    </Box>
 
                     <FloorPlan />
                 </Box>

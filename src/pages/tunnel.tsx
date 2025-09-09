@@ -5,7 +5,7 @@ import { Box } from "@mui/material"
 
 // components
 import Scene from "../components/tunnel/scene"
-// import DetailBox from "../components/home/floor-plan/detail-box"
+import MousemoveElements from "../components/tunnel/mousemove-elements"
 import FadeOutTransition from "../components/ui/fade-out-transition"
 import TextContent from "../components/tunnel/text-content"
 
@@ -21,6 +21,8 @@ const Tunnel: React.FC = () => {
                 filter: 'contrast(1.25)',
             }}>
                 <Scene />
+
+                <MousemoveElements />
 
                 {/* content */}
                 <TextContent />

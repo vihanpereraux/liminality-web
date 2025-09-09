@@ -64,7 +64,7 @@ const FloorPlan: React.FC = () => {
                     aspectRatio: 16 / 9,
                     backgroundColor: 'rgb(10, 10, 10)',
                     position: 'relative',
-                    cursor: isHovering ? 'none' : 'auto'
+                    cursor: isHovering ? 'none' : 'auto',
                 }}>
                 {/* three canvas */}
                 <Pointer left={xCoords} top={yCoords} isHovering={isHovering} />
