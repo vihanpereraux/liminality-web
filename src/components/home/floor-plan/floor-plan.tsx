@@ -66,6 +66,7 @@ const FloorPlan: React.FC = () => {
                     position: 'relative',
                     cursor: isHovering ? 'none' : 'auto',
                 }}>
+                    
                 {/* three canvas */}
                 <Pointer left={xCoords} top={yCoords} isHovering={isHovering} />
 
@@ -80,7 +81,9 @@ const FloorPlan: React.FC = () => {
                     pointerEvents: 'none',
                     backdropFilter: 'blur(1.5px)',
                 }}></Box>
+
                 <Scene />
+                
                 {/* chamber details */}
                 <Details />
             </Box>

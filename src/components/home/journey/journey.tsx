@@ -15,13 +15,13 @@ const Journey: React.FC = () => {
         <>
             {journeyContent.map((item, index) => (
                 <Box key={index}>
-                    <Box sx={{ mt: 4, mb: 5 }}>
+                    <Box sx={{ mt: 3, mb: 5 }}>
                         <Paragraph uppercase={true} content={item.content} />
                     </Box>
 
                     <Box sx={{
                         width: '100%',
-                        height: '660px',
+                        height: '540px',
                         position: 'relative',
                         mb: 6,
                     }}>
@@ -30,6 +30,7 @@ const Journey: React.FC = () => {
                 </Box>
             ))}
 
+            {/* for the mobil894ma         45*/}
             {/* <Box sx={{ mt: 6, mb: 6 }}>
                     <img style={{
                         width: '100%',

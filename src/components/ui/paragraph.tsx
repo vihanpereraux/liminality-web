@@ -11,7 +11,7 @@ const Paragraph: React.FC<ParagraphProps> = ({ content, uppercase }) => {
         <>
             <Typography sx={{
                 color: '#ACACAC',
-                fontSize: uppercase ? 14 : 15.2,
+                fontSize: uppercase ? 12 : 15,
                 textTransform: uppercase ? "uppercase" : "lowercase",
                 fontFamily: 'GeistMono-Regular',
                 lineHeight: 1.65,

@@ -27,7 +27,6 @@ const Pointer: React.FC<PointerProps> = ({ left, top, isHovering }) => {
                     left: left - 15,
                     top: top - 15,
                     pointerEvents: 'none',
-                    // transition: 'all .15s'
                 }}>
                     <Box sx={{
                         width: '1px',
