@@ -41,3 +41,11 @@ html {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+.chamber-snap {
+  filter: grayscale(100);
+  transition: all .25s linear;
+}
+.chamber-snap:hover {
+  filter: grayscale(0);
+}

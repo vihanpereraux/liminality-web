@@ -74,7 +74,7 @@ const PageHeading: React.FC<PageHeadingProps> = ({ type, content }) => {
                                 position: 'absolute',
                                 right: 0,
                                 bottom: 30,
-                                width: '4%'
+                                width: '3%'
                              }} src="/icons/down-arrow.svg" alt="down-arrow" />
                         </Grid>
                     </Grid>

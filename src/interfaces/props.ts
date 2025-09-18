@@ -32,3 +32,8 @@ export interface PageHeadingProps {
     type: "multi" | "single",
     content: string[]
 }
+
+export interface PageContentProps {
+    heading: string,
+    content: string
+}
