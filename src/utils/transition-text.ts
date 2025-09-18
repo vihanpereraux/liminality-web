@@ -28,6 +28,19 @@ export const getTransitionScreenText = (targetScreen: string) => {
             }
             break;
 
+        case "screenThree":
+            returnValue = {
+                chamberSection: "Tangible Realities",
+                chamberTitle: "states of matter",
+                textLines: [
+                    "Step into the realm of the senses",
+                    "where sight, sound, touch, and motion reveal",
+                    "the laws of the observable world."
+                ],
+                nextRoute: "/chamber-three"
+            }
+            break;
+
         case "screenFour":
             returnValue = {
                 chamberSection: "Tangible Realities",

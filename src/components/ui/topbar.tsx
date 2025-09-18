@@ -32,15 +32,15 @@ const Topbar: React.FC<TopbarProps> = ({ positionalString }) => {
                 {/* name / logo */}
                 <Box sx={{
                     display: 'flex',
-                    alignItems: 'center'
+                    alignItems: 'center',
                 }}>
                     <DotIndicator bgColor="black" />
 
                     <Typography sx={{
                         fontFamily: 'GeistMono-Medium',
-                        fontSize: 14,
+                        fontSize: 12,
                         textTransform: 'uppercase',
-                        ml: .75
+                        ml: 1
                     }}>liminality</Typography>
                 </Box>
 
@@ -65,7 +65,7 @@ const Topbar: React.FC<TopbarProps> = ({ positionalString }) => {
                 {/* scroll position */}
                 <Typography sx={{
                     fontFamily: 'GeistMono-Medium',
-                    fontSize: 14,
+                    fontSize: 12.5,
                     textTransform: 'uppercase'
                 }}>[ {positionalString} ]</Typography>
 
@@ -80,7 +80,7 @@ const Topbar: React.FC<TopbarProps> = ({ positionalString }) => {
 
                         <Typography sx={{
                             fontFamily: 'GeistMono-Medium',
-                            fontSize: 14,
+                            fontSize: 12.5,
                             textTransform: 'uppercase',
                             ml: .75
                         }}>discover</Typography>

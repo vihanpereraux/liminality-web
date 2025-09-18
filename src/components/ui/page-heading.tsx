@@ -70,12 +70,12 @@ const PageHeading: React.FC<PageHeadingProps> = ({ type, content }) => {
                                 transform: 'translateX(-50%)'
                             }}>[ realities ]</Typography>
 
-                            <img style={{ 
+                            <img style={{
                                 position: 'absolute',
                                 right: 0,
                                 bottom: 30,
                                 width: '3%'
-                             }} src="/icons/down-arrow.svg" alt="down-arrow" />
+                            }} src="/icons/down-arrow.svg" alt="down-arrow" />
                         </Grid>
                     </Grid>
                     <Grid container spacing={0} sx={{ mt: -3 }}>
@@ -124,13 +124,8 @@ const PageHeading: React.FC<PageHeadingProps> = ({ type, content }) => {
                 </>
             ) : (
                 <>
-                    <Grid container spacing={0} sx={{ mt: 0 }}>
-                        <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'right'
-                            }}>
+                    <Grid container spacing={0} sx={{ mt: 0, height: 'fit-content' }}>
+                        <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
                             <Typography sx={{
                                 color: '#B3B3B3',
                                 fontFamily: 'Geist-Regular',
@@ -138,6 +133,46 @@ const PageHeading: React.FC<PageHeadingProps> = ({ type, content }) => {
                                 fontSize: '5rem',
                                 p: 0,
                             }}>{content[0]}</Typography>
+                        </Grid>
+                        <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                position: 'relative',
+                            }}>
+
+                            <Typography sx={{
+                                color: '#B3B3B3',
+                                fontFamily: 'GeistMono-Light',
+                                textTransform: 'uppercase',
+                                fontSize: 8,
+                                p: 0,
+                                width: 'fit-content',
+                                position: 'absolute',
+                                left: '15%',
+                                top: 25,
+                                transform: 'translateX(-50%)'
+                            }}>[ tangible ]</Typography>
+
+                            <Typography sx={{
+                                color: '#B3B3B3',
+                                fontFamily: 'GeistMono-Light',
+                                textTransform: 'uppercase',
+                                fontSize: 8,
+                                p: 0,
+                                width: 'fit-content',
+                                position: 'absolute',
+                                left: '60%',
+                                bottom: 25,
+                                transform: 'translateX(-50%)'
+                            }}>[ realities ]</Typography>
+
+                            <img style={{
+                                position: 'absolute',
+                                right: 0,
+                                bottom: 30,
+                                width: '4%'
+                            }} src="/icons/down-arrow.svg" alt="down-arrow" />
                         </Grid>
                     </Grid>
                 </>

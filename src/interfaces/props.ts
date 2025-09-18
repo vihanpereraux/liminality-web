@@ -14,7 +14,9 @@ export interface JourneyTextProps {
 
 export interface SectionBreakerProps {
     heading: string,
-    number: string
+    number: string,
+    textTransformSelection?: boolean,
+    setUppercase?: (value: boolean) => void
 }
 
 export interface ChamberSectionBreakerProps {
@@ -28,7 +30,7 @@ export interface TransitionProps {
     chamberTitle: string,
     setEntryAccepted: (value: boolean) => void
     nextRoute: string,
-    textLines: string []
+    textLines: string[]
 }
 
 export interface PageHeadingProps {
@@ -56,16 +58,17 @@ export interface imageListProps {
 }
 
 export interface SnapGalleryProps {
-    items: imageListProps []
+    items: imageListProps[]
 }
 
 export interface SecondaryTextProps {
-    textLines: string [],
+    textLines: string[],
     showOverlay: boolean
 }
 
 export interface ParagraphProps {
-    content: string
+    content: string,
+    uppercase: boolean
 }
 
 export interface ScrollTriggerProps {
@@ -78,4 +81,10 @@ export interface LabelProps {
 
 export interface WavyImageProps {
     image: string
-} 
+}
+
+export interface FadeOutTransitionProps {
+    children: React.ReactNode;
+    duration?: number;
+    delay?: number;
+}

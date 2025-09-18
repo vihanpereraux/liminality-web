@@ -3,17 +3,10 @@ import React, { useState, useEffect } from "react";
 // MUI
 import { Box } from "@mui/material";
 
-interface FadeOutTransitionProps {
-    children: React.ReactNode;
-    duration?: number; // Duration in milliseconds
-    delay?: number; // Delay before starting fade in milliseconds
-}
+// props
+import type { FadeOutTransitionProps } from "../../interfaces/props";
 
-const FadeOutTransition: React.FC<FadeOutTransitionProps> = ({ 
-    children, 
-    duration = 2000, 
-    delay = 500 
-}) => {
+const FadeOutTransition: React.FC<FadeOutTransitionProps> = ({ children, duration = 2000, delay = 500 }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -42,7 +35,7 @@ const FadeOutTransition: React.FC<FadeOutTransitionProps> = ({
                     pointerEvents: isVisible ? 'none' : 'all',
                 }}
             />
-            
+
             {/* Content underneath */}
             <Box sx={{ width: '100%', height: '100%' }}>
                 {children}

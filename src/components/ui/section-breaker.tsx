@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 // MUI
 import { Box, Typography } from "@mui/material";
@@ -9,16 +9,16 @@ import DotIndicator from "./dot-indicator";
 // props
 import type { SectionBreakerProps } from "../../interfaces/props";
 
-const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number }) => {
+const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number, textTransformSelection, setUppercase }) => {
+    const [uppercaseSelected, setUppercaseSelected] = useState<boolean>(true);
+
     const path = useRef<SVGPathElement>(null);
     let progress = 0;
     let x = 0.5;
     let time = Math.PI / 2;
     let reqId: any = null;
 
-    useEffect(() => {
-        setPath(progress);
-    }, [])
+    useEffect(() => { setPath(progress); }, [])
 
     const setPath = (progress: any) => {
         const width = window.innerWidth * 0.76;
@@ -70,7 +70,7 @@ const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number }) => {
 
     return (
         <>
-            <Box sx={{ mt: 10, mb: 5 }}>
+            <Box sx={{ mt: 0, mb: 0 }}>
                 <Box sx={{
                     display: 'flex',
                     justifyContent: 'space-between'
@@ -91,22 +91,66 @@ const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number }) => {
                         }}>[ {heading} ]</Typography>
                     </Box>
 
-                    <Typography sx={{
-                        color: '#B3B3B3',
-                        fontSize: 11,
-                        textTransform: 'uppercase',
-                        fontFamily: 'GeistMono-Medium',
-                        lineHeight: 1.65,
-                        letterSpacing: 1.45
-                    }}>[ {number} ]</Typography>
+                    {!textTransformSelection ? (
+                        <Typography sx={{
+                            color: '#B3B3B3',
+                            fontSize: 11,
+                            textTransform: 'uppercase',
+                            fontFamily: 'GeistMono-Medium',
+                            lineHeight: 1.65,
+                            letterSpacing: 1.45
+                        }}>[ {number} ]</Typography>
+                    ) : (
+                        <Box sx={{
+                            display: 'flex',
+                            position: 'relative',
+                            zIndex: 2
+                        }}>
+                            <Typography onClick={() => { setUppercase?.(true); setUppercaseSelected(true) }}
+                                sx={{
+                                    color: '#B3B3B3',
+                                    fontSize: 11,
+                                    textTransform: 'uppercase',
+                                    fontFamily: 'GeistMono-Medium',
+                                    lineHeight: 1.65,
+                                    letterSpacing: 1.45,
+                                    cursor: 'pointer',
+                                    opacity: uppercaseSelected ? 1 : .55
+                                }}>uppercase</Typography>
+
+                            <Typography sx={{
+                                color: '#B3B3B3',
+                                fontSize: 11,
+                                textTransform: 'uppercase',
+                                fontFamily: 'GeistMono-Medium',
+                                lineHeight: 1.65,
+                                ml: 1,
+                                mr: 1,
+                                cursor: 'pointer'
+                            }}> | </Typography>
+
+                            <Typography onClick={() => { setUppercase?.(false); setUppercaseSelected(false) }}
+                                sx={{
+                                    color: '#B3B3B3',
+                                    fontSize: 11,
+                                    textTransform: 'uppercase',
+                                    fontFamily: 'GeistMono-Medium',
+                                    lineHeight: 1.65,
+                                    letterSpacing: 1.45,
+                                    opacity: uppercaseSelected ? .55 : 1,
+                                    cursor: 'pointer'
+                                }}>lowercase</Typography>
+                        </Box>
+                    )}
                 </Box>
 
                 <Box sx={{
-                    mt: 1,
+                    mt: 1.55,
                     height: '1px',
                     marginBottom: '20px',
                     width: '100%',
-                    position: 'relative'
+                    position: 'relative',
+                    zIndex: 1
                 }}>
                     <Box sx={{
                         height: 40,
@@ -121,12 +165,14 @@ const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number }) => {
                     }}
                         onMouseEnter={() => { manageMouseEnter() }}
                         onMouseMove={(e) => { manageMouseMove(e) }}
-                        onMouseLeave={() => { manageMouseLeave() }}></Box>
+                        onMouseLeave={() => { manageMouseLeave() }}>
+                    </Box>
                     <svg style={{
                         width: '100%',
                         height: '500px',
                         position: 'absolute',
-                        top: '-250px'
+                        top: '-250px',
+                        pointerEvents: 'none'
                     }}>
                         <path style={{
                             stroke: '#B3B3B3',

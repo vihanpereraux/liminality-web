@@ -21,7 +21,14 @@ const WavyImage: React.FC<WavyImageProps> = ({ image }) => {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         renderer.setSize(container.clientWidth, container.clientHeight, false);
         renderer.setClearColor(0x000000, 1); // ✅ black background
-        container.appendChild(renderer.domElement);
+        
+        // Ensure canvas fits within container
+        const canvas = renderer.domElement;
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.display = 'block';
+        
+        container.appendChild(canvas);
         rendererRef.current = renderer;
 
         const scene = new THREE.Scene();
@@ -146,7 +153,9 @@ const WavyImage: React.FC<WavyImageProps> = ({ image }) => {
                 width: "100%",
                 position: 'absolute',
                 height: '100%',
-                objectFit: 'cover'
+                top: 0,
+                left: 0,
+                overflow: 'hidden'
             }}
         />
     );
