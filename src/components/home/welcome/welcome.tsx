@@ -10,6 +10,9 @@ import Label from "../../ui/label";
 // utils
 import { textList } from "../../../utils/text-list";
 
+// hooks
+import { useViewportWidth } from "../../../hooks/useViewportWidth";
+
 const getTextPlacement = (index: number) => {
     let justifyContent: string = "";
     switch (index) {
@@ -34,6 +37,8 @@ const getTextPlacement = (index: number) => {
 }
 
 const Welcome: React.FC = () => {
+    const viewportWidth = useViewportWidth();
+
     const [xCoords, setXCords] = useState<number>(0);
     const [yCoords, setYCords] = useState<number>(0);
 
@@ -61,74 +66,75 @@ const Welcome: React.FC = () => {
                 <Scene />
 
                 {/* markers */}
-                <Box sx={{
-                    width: 55,
-                    aspectRatio: 1,
-                    bgcolor: '#B7B7B7',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: 'absolute',
-                    right: -80,
-                    top: '18%',
-                }}>
-                    <img style={{
+                {viewportWidth > 1024 && (<>
+                    <Box sx={{
+                        width: 55,
+                        aspectRatio: 1,
+                        bgcolor: '#B7B7B7',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         position: 'absolute',
-                        right: -.7,
-                        top: 0,
-                        width: '20%',
-                    }} src="/icons/corner-icon.svg" alt="" />
+                        right: -80,
+                        top: '18%',
+                    }}>
+                        <img style={{
+                            position: 'absolute',
+                            right: -.7,
+                            top: 0,
+                            width: '20%',
+                        }} src="/icons/corner-icon.svg" alt="" />
 
-                    <Typography sx={{
-                        fontSize: 8,
-                        fontFamily: 'GeistMono-Medium',
-                    }}>[+ {xCoords}]</Typography>
+                        <Typography sx={{
+                            fontSize: 8,
+                            fontFamily: 'GeistMono-Medium',
+                        }}>[+ {xCoords}]</Typography>
 
-                    <img style={{
+                        <img style={{
+                            position: 'absolute',
+                            left: -.7,
+                            bottom: 0,
+                            width: '20%',
+                            transform: 'rotate(180deg)'
+                        }} src="/icons/corner-icon.svg" alt="" />
+                    </Box>
+
+                    <Box sx={{
+                        width: 55,
+                        aspectRatio: 1,
+                        bgcolor: '#B7B7B7',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         position: 'absolute',
-                        left: -.7,
-                        bottom: 0,
-                        width: '20%',
-                        transform: 'rotate(180deg)'
-                    }} src="/icons/corner-icon.svg" alt="" />
-                </Box>
+                        left: -80,
+                        bottom: '18%'
+                    }}>
+                        <img style={{
+                            position: 'absolute',
+                            left: -.7,
+                            bottom: 0,
+                            width: '20%',
+                            transform: 'rotate(180deg)'
+                        }} src="/icons/corner-icon.svg" alt="" />
 
-                {/* markers */}
-                <Box sx={{
-                    width: 55,
-                    aspectRatio: 1,
-                    bgcolor: '#B7B7B7',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    position: 'absolute',
-                    left: -80,
-                    bottom: '18%'
-                }}>
-                    <img style={{
-                        position: 'absolute',
-                        left: -.7,
-                        bottom: 0,
-                        width: '20%',
-                        transform: 'rotate(180deg)'
-                    }} src="/icons/corner-icon.svg" alt="" />
+                        <Typography sx={{
+                            fontSize: 8,
+                            fontFamily: 'GeistMono-Medium',
+                        }}>[+ {yCoords}]</Typography>
 
-                    <Typography sx={{
-                        fontSize: 8,
-                        fontFamily: 'GeistMono-Medium',
-                    }}>[+ {yCoords}]</Typography>
-
-                    <img style={{
-                        position: 'absolute',
-                        right: -.7,
-                        top: 0,
-                        width: '20%',
-                    }} src="/icons/corner-icon.svg" alt="" />
-                </Box>
+                        <img style={{
+                            position: 'absolute',
+                            right: -.7,
+                            top: 0,
+                            width: '20%',
+                        }} src="/icons/corner-icon.svg" alt="" />
+                    </Box>
+                </>)}
             </Box>
 
             <Box sx={{
-                display: 'flex',
+                // display: 'flex',
                 justifyContent: 'space-between',
                 mt: 5
             }}>

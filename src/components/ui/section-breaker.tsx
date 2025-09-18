@@ -9,7 +9,12 @@ import DotIndicator from "./dot-indicator";
 // props
 import type { SectionBreakerProps } from "../../interfaces/props";
 
+// hooks
+import { useViewportWidth } from "../../hooks/useViewportWidth";
+
 const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number, textTransformSelection, setUppercase }) => {
+    const viewportWidth = useViewportWidth();
+
     const [uppercaseSelected, setUppercaseSelected] = useState<boolean>(true);
 
     const path = useRef<SVGPathElement>(null);
@@ -144,51 +149,57 @@ const SectionBreaker: React.FC<SectionBreakerProps> = ({ heading, number, textTr
                     )}
                 </Box>
 
-                <Box sx={{
-                    mt: 1.55,
-                    height: '1px',
-                    marginBottom: '20px',
-                    width: '100%',
-                    position: 'relative',
-                    zIndex: 1
-                }}>
-                    <Box sx={{
-                        height: 40,
-                        width: '100%',
-                        position: 'relative',
-                        top: '-20px',
-                        zIndex: 1,
-                        '&:hover': {
-                            height: '230px',
-                            top: '-250px'
-                        }
-                    }}
-                        onMouseEnter={() => { manageMouseEnter() }}
-                        onMouseMove={(e) => { manageMouseMove(e) }}
-                        onMouseLeave={() => { manageMouseLeave() }}>
-                    </Box>
-                    <svg style={{
-                        width: '100%',
-                        height: '500px',
-                        position: 'absolute',
-                        top: '-250px',
-                        pointerEvents: 'none'
-                    }}>
-                        <path style={{
-                            stroke: '#B3B3B3',
-                            strokeWidth: '.4px',
-                            fill: 'none'
-                        }} ref={path}></path>
-                    </svg>
-                </Box>
-
-                {/* <Box sx={{
-                    width: '100%',
-                    height: '1px',
-                    bgcolor: '#B3B3B3',
-                    opacity: .3,
-                    mt: 1
-                }}></Box> */}
+                {viewportWidth > 1024 ?
+                    (<>
+                        <Box sx={{
+                            mt: 1.55,
+                            height: '1px',
+                            marginBottom: '20px',
+                            width: '100%',
+                            position: 'relative',
+                            zIndex: 1,
+                        }}>
+                            <Box sx={{
+                                height: 40,
+                                width: '100%',
+                                position: 'relative',
+                                top: '-20px',
+                                zIndex: 1,
+                                '&:hover': {
+                                    height: '230px',
+                                    top: '-250px'
+                                },
+                            }}
+                                onMouseEnter={() => { manageMouseEnter() }}
+                                onMouseMove={(e) => { manageMouseMove(e) }}
+                                onMouseLeave={() => { manageMouseLeave() }}>
+                            </Box>
+                            <svg style={{
+                                width: '100%',
+                                height: '500px',
+                                position: 'absolute',
+                                top: '-250px',
+                                pointerEvents: 'none'
+                            }}>
+                                <path style={{
+                                    stroke: '#B3B3B3',
+                                    strokeWidth: '.4px',
+                                    fill: 'none',
+                                    opacity: .8,
+                                }} ref={path}></path>
+                            </svg>
+                        </Box>
+                    </>)
+                    :
+                    (<>
+                        <Box sx={{
+                            width: '100%',
+                            height: '1px',
+                            bgcolor: '#B3B3B3',
+                            opacity: .3,
+                            mt: 1
+                        }}></Box>
+                    </>)}
             </Box>
         </>
     )
