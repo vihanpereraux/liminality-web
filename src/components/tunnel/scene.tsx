@@ -21,8 +21,8 @@ const CameraController: React.FC<{ targetZ: number; onAnimationComplete: () => v
             const newZ = currentZ + (targetZ - currentZ) * 0.02;
             cameraRef.current.position.z = newZ;
             
-            // Check if animation is nearly complete (within 0.1 units of target)
-            if (Math.abs(newZ - targetZ) < 0.1 && targetZ !== 13) {
+            // Check if camera position has reached 5 (within 0.1 units)
+            if (Math.abs(newZ - 5) < 0.1 && currentZ > 5.1) {
                 onAnimationComplete();
             }
         }
@@ -59,11 +59,17 @@ const CameraController: React.FC<{ targetZ: number; onAnimationComplete: () => v
 
 const Scene: React.FC = () => {
     const [cameraZ, setCameraZ] = useState(13);
+    const [showOverlay, setShowOverlay] = useState(false);
     const navigate = useNavigate();
     
     const handleAnimationComplete = () => {
-        // Navigate to chamber-four after animation completes
-        navigate('/chamber-four');
+        // Show the black overlay first
+        setShowOverlay(true);
+        
+        // Navigate after overlay animation completes (2 seconds)
+        setTimeout(() => {
+            navigate('/chamber-four');
+        }, 2000);
     };
 
     useEffect(() => {
@@ -116,6 +122,23 @@ const Scene: React.FC = () => {
                 }}>
                     scroll into the void to continue the experience
                 </Typography>
+
+                {/* Black Overlay */}
+                <Box
+                    sx={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100vw',
+                        height: '100vh',
+                        backgroundColor: 'black',
+                        zIndex: 2000,
+                        opacity: showOverlay ? 1 : 0,
+                        visibility: showOverlay ? 'visible' : 'hidden',
+                        transition: 'opacity 2s ease-in-out, visibility 0s linear ' + (showOverlay ? '0s' : '2s'),
+                        pointerEvents: showOverlay ? 'auto' : 'none',
+                    }}
+                />
             </Box>
         </>
     )
