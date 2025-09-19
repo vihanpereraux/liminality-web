@@ -65,9 +65,9 @@ const PageHeading: React.FC<PageHeadingProps> = ({ type, content }) => {
                                 p: 0,
                                 width: 'fit-content',
                                 position: 'absolute',
-                                left: '50%',
+                                right: '0%',
                                 top: 25,
-                                transform: 'translateX(-50%)'
+                                // transform: 'translateX(-50%)'
                             }}>[ realities ]</Typography>
 
                             <img style={{
@@ -124,57 +124,166 @@ const PageHeading: React.FC<PageHeadingProps> = ({ type, content }) => {
                 </>
             ) : (
                 <>
-                    <Grid container spacing={0} sx={{ mt: 0, height: 'fit-content' }}>
-                        <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
-                            <Typography sx={{
-                                color: '#B3B3B3',
-                                fontFamily: 'Geist-Regular',
-                                textTransform: 'uppercase',
-                                fontSize: '5rem',
-                                p: 0,
-                            }}>{content[0]}</Typography>
-                        </Grid>
-                        <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}
-                            sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                position: 'relative',
-                            }}>
+                    {type == "single" ? (
+                        <>
+                            <Grid container spacing={0} sx={{ mt: 0, height: 'fit-content' }}>
+                                <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}>
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'Geist-Regular',
+                                        textTransform: 'uppercase',
+                                        fontSize: '5rem',
+                                        p: 0,
+                                    }}>{content[0]}</Typography>
+                                </Grid>
+                                <Grid size={{ xs: 12, sm: 12, md: 6, lg: 6, xl: 6 }}
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        position: 'relative',
+                                    }}>
 
-                            <Typography sx={{
-                                color: '#B3B3B3',
-                                fontFamily: 'GeistMono-Light',
-                                textTransform: 'uppercase',
-                                fontSize: 8,
-                                p: 0,
-                                width: 'fit-content',
-                                position: 'absolute',
-                                left: '15%',
-                                top: 25,
-                                transform: 'translateX(-50%)'
-                            }}>[ tangible ]</Typography>
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'GeistMono-Light',
+                                        textTransform: 'uppercase',
+                                        fontSize: 8,
+                                        p: 0,
+                                        width: 'fit-content',
+                                        position: 'absolute',
+                                        left: '20%',
+                                        top: 25,
+                                        transform: 'translateX(-50%)'
+                                    }}>[ tangible ]</Typography>
 
-                            <Typography sx={{
-                                color: '#B3B3B3',
-                                fontFamily: 'GeistMono-Light',
-                                textTransform: 'uppercase',
-                                fontSize: 8,
-                                p: 0,
-                                width: 'fit-content',
-                                position: 'absolute',
-                                left: '60%',
-                                bottom: 25,
-                                transform: 'translateX(-50%)'
-                            }}>[ realities ]</Typography>
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'GeistMono-Light',
+                                        textTransform: 'uppercase',
+                                        fontSize: 8,
+                                        p: 0,
+                                        width: 'fit-content',
+                                        position: 'absolute',
+                                        right: '20%',
+                                        top: 25,
+                                        transform: 'translateX(-50%)'
+                                    }}>[ realities ]</Typography>
 
-                            <img style={{
-                                position: 'absolute',
-                                right: 0,
-                                bottom: 30,
-                                width: '4%'
-                            }} src="/icons/down-arrow.svg" alt="down-arrow" />
-                        </Grid>
-                    </Grid>
+                                    <img style={{
+                                        position: 'absolute',
+                                        right: 0,
+                                        bottom: 30,
+                                        width: '4%'
+                                    }} src="/icons/down-arrow.svg" alt="down-arrow" />
+                                </Grid>
+                            </Grid>
+                        </>)
+                        :
+                        (<>
+                            <Grid container spacing={0}>
+                                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        position: 'relative',
+                                        height: 'fit-content',
+                                    }}>
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'Geist-Regular',
+                                        textTransform: 'uppercase',
+                                        fontSize: 75,
+                                        p: 0,
+                                        width: 'fit-content',
+                                    }}>{content[0]}</Typography>
+
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'GeistMono-Light',
+                                        textTransform: 'uppercase',
+                                        fontSize: 8,
+                                        p: 0,
+                                        width: 'fit-content',
+                                        position: 'absolute',
+                                        left: '45%',
+                                        top: 25,
+                                        transform: 'translateX(-50%)'
+                                    }}>[ tangible ]</Typography>
+
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'GeistMono-Light',
+                                        textTransform: 'uppercase',
+                                        fontSize: 8,
+                                        p: 0,
+                                        width: 'fit-content',
+                                        position: 'absolute',
+                                        left: '70%',
+                                        top: 25,
+                                        transform: 'translateX(-50%)'
+                                    }}>[ realities ]</Typography>
+                                    <img style={{
+                                        position: 'absolute',
+                                        top: 25,
+                                        width: '2%',
+                                        right: 0
+                                    }} src="/icons/down-arrow.svg" alt="down-arrow" />
+                                </Grid>
+                                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}>
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'Geist-Regular',
+                                        textTransform: 'uppercase',
+                                        fontSize: 75,
+                                        textAlign: 'right',
+                                    }}>{content[1]}</Typography>
+                                </Grid>
+                            </Grid>
+
+                            <Grid container spacing={0} sx={{ mt: -3 }}>
+                                <Grid size={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }}
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'right',
+                                        position: 'relative',
+                                        height: 'fit-content'
+                                    }}>
+
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'GeistMono-Light',
+                                        textTransform: 'uppercase',
+                                        fontSize: 8,
+                                        p: 0,
+                                        width: 'fit-content',
+                                        position: 'absolute',
+                                        left: '8%',
+                                        bottom: 28,
+                                    }}>[ → ]</Typography>
+
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'GeistMono-Light',
+                                        textTransform: 'uppercase',
+                                        fontSize: 8,
+                                        p: 0,
+                                        width: 'fit-content',
+                                        position: 'absolute',
+                                        left: '55%',
+                                        bottom: 28,
+                                    }}>[ → ]</Typography>
+
+                                    <Typography sx={{
+                                        color: '#B3B3B3',
+                                        fontFamily: 'Geist-Regular',
+                                        textTransform: 'uppercase',
+                                        fontSize: '5rem',
+                                        p: 0,
+                                    }}>{content[2]}</Typography>
+                                </Grid>
+                            </Grid>
+                        </>)}
                 </>
             )}
         </>

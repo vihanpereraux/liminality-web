@@ -18,13 +18,13 @@ import ScrollTrigger from "../components/ui/scroll-trigger";
 import { parentWrapperStyles } from "../utils/wrapper-styles";
 import { chamberOneImageList } from "../utils/chamber-image-lists";
 
-const ChamberFour: React.FC = () => {
+const ChamberFive: React.FC = () => {
     const location = useLocation();
     useEffect(() => { window.scrollTo(0, 0) }, [location]);
 
     return (
         <>
-            <Topbar positionalString="chamber four" />
+            <Topbar positionalString="chamber five" />
             <TopbarShader />
 
             <FadeOutTransition duration={3000} delay={300}>
@@ -32,10 +32,10 @@ const ChamberFour: React.FC = () => {
                     <ChamberSectionBreaker headingLeft="title" headingRight="tangible realities" />
 
                     {/* heading */}
-                    <PageHeading type="multi" content={["THE", "ENTROPY", "CHAMBER"]} />
+                    <PageHeading type="double" content={["TIME", "LATTICE"]} />
 
                     {/* video */}
-                        <Box sx={{ mt: 2 }}>
+                    <Box sx={{ mt: 2 }}>
                         <img style={{
                                 width: '100%',
                                 aspectRatio: 16 / 9,
@@ -126,4 +126,4 @@ const ChamberFour: React.FC = () => {
     )
 }
 
-export default ChamberFour;
+export default ChamberFive;

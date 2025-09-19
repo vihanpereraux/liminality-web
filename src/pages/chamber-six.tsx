@@ -18,13 +18,15 @@ import ScrollTrigger from "../components/ui/scroll-trigger";
 import { parentWrapperStyles } from "../utils/wrapper-styles";
 import { chamberOneImageList } from "../utils/chamber-image-lists";
 
-const ChamberFour: React.FC = () => {
+const ChamberSix: React.FC = () => {
     const location = useLocation();
-    useEffect(() => { window.scrollTo(0, 0) }, [location]);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location]);
 
     return (
         <>
-            <Topbar positionalString="chamber four" />
+            <Topbar positionalString="chamber six" />
             <TopbarShader />
 
             <FadeOutTransition duration={3000} delay={300}>
@@ -32,11 +34,12 @@ const ChamberFour: React.FC = () => {
                     <ChamberSectionBreaker headingLeft="title" headingRight="tangible realities" />
 
                     {/* heading */}
-                    <PageHeading type="multi" content={["THE", "ENTROPY", "CHAMBER"]} />
+                    <PageHeading type="double" content={["SPACE", "DISTORTION"]} />
 
                     {/* video */}
-                        <Box sx={{ mt: 2 }}>
-                        <img style={{
+                    <Box sx={{ mt: 3 }}>
+                        <img
+                            style={{
                                 width: '100%',
                                 aspectRatio: 16 / 9,
                                 objectFit: 'cover',
@@ -46,7 +49,7 @@ const ChamberFour: React.FC = () => {
                     </Box>
 
                     {/* content block 01 */}
-                    <Box sx={{ mt: 8.5 }}>
+                    <Box sx={{ mt: 7 }}>
                         <PageContent
                             heading="concept"
                             content="
@@ -65,7 +68,7 @@ const ChamberFour: React.FC = () => {
                     </Box>
 
                     {/* content block 02 */}
-                    <Box sx={{ mt: 8.5 }}>
+                    <Box sx={{ mt: 7 }}>
                         <PageContent
                             heading="curation"
                             content="
@@ -89,7 +92,7 @@ const ChamberFour: React.FC = () => {
                     </Box>
 
                     {/* content block 02 */}
-                    <Box sx={{ mt: 8.5 }}>
+                    <Box sx={{ mt: 7 }}>
                         <PageContent
                             heading="curation"
                             content="
@@ -120,10 +123,10 @@ const ChamberFour: React.FC = () => {
                     </Box>
                 </Box>
 
-                <ScrollTrigger targetScreen="screenFour" />
+                <ScrollTrigger targetScreen="screenTwo" />
             </FadeOutTransition>
         </>
     )
 }
 
-export default ChamberFour;
+export default ChamberSix;
