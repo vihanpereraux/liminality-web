@@ -58,6 +58,7 @@ const MousemoveElements: React.FC = () => {
                 left: lerpedX,
                 zIndex: 2,
                 transform: 'translate(-50%, -50%)',
+                pointerEvent: 'none'
             }}></Box>
 
             <Box sx={{

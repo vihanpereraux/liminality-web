@@ -34,7 +34,7 @@ export interface TransitionProps {
 }
 
 export interface PageHeadingProps {
-    type: "multi" | "single",
+    type: "multi" | "single" | "double",
     content: string[]
 }
 
