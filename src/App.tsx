@@ -7,6 +7,7 @@ import ChamberOne from "./pages/chamber-one"
 import ChamberTwo from "./pages/chamber-two"
 import ChamberThree from "./pages/chamber-three"
 import Tunnel from "./pages/tunnel"
+import ChamberFour from "./pages/chamber-four"
 
 // hooks
 import { useLenis } from "./hooks/useLenis"
@@ -20,6 +21,7 @@ const AppContent: React.FC = () => {
         <Route path="/chamber-two" Component={ChamberTwo}></Route>
         <Route path="/chamber-three" Component={ChamberThree}></Route>
         <Route path="/tunnel" Component={Tunnel}></Route>
+        <Route path="/chamber-four" Component={ChamberFour}></Route>
       </Routes>
     </>
   )
